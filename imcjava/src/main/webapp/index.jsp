@@ -25,60 +25,39 @@
 	</div>
 	<button>Calcular</button>
 	
+	<%!
+	public String valor (HttpServletRequest req, String param, String padrao) {
+	
+		String result = req.getParameter(param);
+		if(result == null) {
+			result = padrao;
+			}
+		return result;
+	}
+	
+	public double toDouble (HttpServletRequest req, String param, String padrao) {
+		return Double.parseDouble(valor(req, param, padrao));
+	}
+		
+	%>
+	
+	
 	<%
 
-		String pesoStr = request.getParameter("peso");
-		if(pesoStr == null) {
-			pesoStr = "0";
-		}
-		Double pesoD = Double.parseDouble(pesoStr);
+
+		Double pesoD = toDouble(request, "peso", "0");
+
+		Double alturaD = toDouble(request, "altura", "0");
+
+		int sexo = Integer.parseInt(valor(request, "selectsexo", "1"));
 		
-		String alturaStr = request.getParameter("altura");
-		if(alturaStr == null) {
-			alturaStr = "0";
-		}
-		Double alturaD = Double.parseDouble(alturaStr);
-		
-		String sexoStr = request.getParameter("selectsexo");
-		if(sexoStr == null) {
-			sexoStr = "1";
-		}
-		int sexo = Integer.parseInt(sexoStr);
-		
-		
-		
-		Double imc=pesoD/((alturaD*alturaD)/10000);
-		
-		%>
+	%>
 		</form>
 	<br>
 	<br>
 	<br>
-	<b>Resultado: <% if(sexo==1) {
-				if(imc<20.7){
-					out.println("Abaixo do peso ideal!\nIMC: "+imc);
-				} else if(imc>20.8&&imc<26.4) {
-					out.println("Peso normal!\nIMC: "+imc);
-				} else if(imc>26.4&&imc<27.8) {
-					out.println("Marginalmente acima do peso!\nIMC: "+imc);
-				} else if(imc>=27.8&&imc<=31.1) {
-					out.println("Acima do peso ideal!\nIMC: "+imc);
-				} else if(imc>31.1) {
-					out.println("Obeso!\nIMC: "+imc);
-				}
-			}else if(sexo==2) {
-				if(imc<19.1){
-					out.println("Abaixo do peso ideal!\nIMC: "+imc);
-				} else if(imc>=19.1&&imc<=25.8) {
-					out.println("Peso normal!\nIMC: "+imc);
-				} else if(imc>=25.9&&imc<=27.3) {
-					out.println("Marginalmente acima do peso!\nIMC: "+imc);
-				} else if(imc>=27.4&&imc<=32.3) {
-					out.println("Acima do peso ideal!\nIMC: "+imc);
-				} else if(imc>32.3) {
-					out.println("Obeso!\nIMC: "+imc);
-				}
-			}
+	<b>Resultado: Calcular.calcular(peso, altura, sexo);
+	
 	%></b>
 	<TABLE BORDER=1 style="margin: 15px">
 				<TR style="background:#BDBDBD"><TH>Condição</TH><TH>IMC em Mulheres</TH><TH>IMC em Homens</TH></TR>

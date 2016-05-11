@@ -6,7 +6,6 @@
 </head>
 <body style="background:#D8F6CE">
 	<h1 style="color:black">&nbsp;IMC - Cálculo do índice de massa corporal - calculo imc</h1>
-	<form>
 	<h4 style="color:black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Peso</h4>
 	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="peso" placeholder="Ex: 52Kg"></p>
 	<br>
@@ -32,7 +31,7 @@
 	
 	<TABLE BORDER=1 style="margin: 15px">
 				<TR style="background:#BDBDBD"><TH>Condição</TH><TH>IMC em Mulheres</TH><TH>IMC em Homens</TH></TR>
-				<TR><TD>abaixo do peso</TD><TD>< 19,1</TD><TD>< 20,7</TD></TR>
+				<TR><TD>abaixo do peso</TD><TD>19,1</TD><TD> 20,7</TD></TR>
 				<TR><TD>no peso normal</TD><TD>19,1 - 25,8</TD><TD>20,7 - 26,4</TD></TR>
 				<TR><TD>marginalmente acima do peso</TD><TD>25,8 - 27,3</TD><TD>26,4 - 27,8</TD></TR>
 				<TR><TD>acima do peso ideal</TD><TD>27,3 - 32,3</TD><TD>27,8 - 31,1</TD></TR>

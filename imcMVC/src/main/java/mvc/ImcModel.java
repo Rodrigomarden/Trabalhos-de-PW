@@ -1,7 +1,7 @@
 package mvc;
 
 public class ImcModel {
-	public static String calcular(double peso, double altura, double sexo) {
+	public static String calcular(double peso, double altura, int sexo) {
 		Double imc=peso/((altura*altura)/10000);
 		
 		String retorno= "";

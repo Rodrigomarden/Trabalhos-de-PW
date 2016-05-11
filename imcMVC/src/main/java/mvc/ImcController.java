@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/imccalc")
-
+@SuppressWarnings("serial")
+@WebServlet("/imcalc")
 public class ImcController extends HttpServlet {
 	private String valor (HttpServletRequest req, String param, String padrao) {
 		
@@ -26,5 +26,22 @@ public class ImcController extends HttpServlet {
 	
 	private int toInt (HttpServletRequest req, String param, String padrao) {
 		return Integer.parseInt(valor(req, param, padrao));
+	}
+	
+
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Double peso = toDouble(req, "peso", "0");
+
+		Double altura = toDouble(req, "altura", "0");
+
+		int sexo = toInt(req, "selectsexo", "1");
+		
+		String resultImc= ImcModel.calcular(peso, altura, sexo);
+		
+		//Passando parâmetro pro JSP.
+		req.setAttribute("resultado", resultImc);
+		
+		req.getRequestDispatcher("ImcView.jsp").forward(req, resp);
 	}
 }

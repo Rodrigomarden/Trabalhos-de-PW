@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
-@WebServlet("/imcalc")
+@WebServlet("/imccalc")
+
 public class ImcController extends HttpServlet {
 	private String valor (HttpServletRequest req, String param, String padrao) {
 		

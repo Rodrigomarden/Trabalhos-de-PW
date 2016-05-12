@@ -38,11 +38,8 @@ public class ImcController extends HttpServlet {
 
 		int sexo = toInt(req, "selectsexo", "1");
 		
-		String resultImc= ImcModel.calcular(peso, altura, sexo);
-		
 		//Passando parâmetro pro JSP.
-		req.setAttribute("resultado", resultImc);
-		
+		req.setAttribute("resultado", ImcModel.calcular(peso, altura, sexo));
 		req.getRequestDispatcher("ImcView.jsp").forward(req, resp);
 	}
 }
